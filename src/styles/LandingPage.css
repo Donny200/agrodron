@@ -1,0 +1,172 @@
+/* === Hero Section === */
+.landing-container .hero {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  box-shadow: inset 0 0 30px rgba(78,205,196,0.15);
+  margin-bottom: 40px;
+  transition: box-shadow 0.3s ease;
+}
+.landing-container .hero:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.hero-left {
+  flex: 1;
+}
+.hero-left h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.hero-left p {
+  color: #a0b0c0;
+}
+.hero-right {
+  width: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Drone Model === */
+.drone-card { display: flex; flex-direction: column; align-items: center; }
+.drone-stage {
+  width: 340px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1100px;
+}
+.drone {
+  width: 260px;
+  height: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.drone-body {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 160px; height: 70px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #ffe66d);
+  border-radius: 16px;
+  transform: translate(-50%, -50%) translateZ(22px);
+  box-shadow: 0 8px 30px rgba(78,205,196,0.2);
+}
+.rotor {
+  position: absolute;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+  animation: rotate-blades 1.2s linear infinite;
+}
+.rotor::after {
+  content: '';
+  width: 44px; height: 6px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+.r1 { left: -10px; top: 6%; }
+.r2 { right: -10px; top: 6%; }
+.r3 { left: -10px; bottom: 6%; }
+.r4 { right: -10px; bottom: 6%; }
+
+@keyframes rotate-blades { from {transform: rotate(0);} to {transform: rotate(360deg);} }
+
+.rotate-tip {
+  font-size: 13px;
+  color: #a0b0c0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* === About Section === */
+.two-col { display: flex; gap: 32px; margin-top: 24px; }
+.about-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+.about-card:hover { transform: translateY(-4px); }
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 24px;
+}
+.about-item {
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.about-item:hover { transform: scale(1.05); background: rgba(255,255,255,0.1); }
+
+/* === Contact Section === */
+.contact-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+.contact-card:hover { transform: translateY(-4px); }
+
+.field {
+  width: 100%; padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: transparent; color: inherit;
+  transition: border-color 0.3s ease;
+}
+.field:focus { border-color: #4ecdc4; outline: none; }
+.field.area { min-height: 120px; resize: vertical; }
+
+/* === Buttons === */
+.btn-primary {
+  background: linear-gradient(90deg, #4ecdc4, #ffe66d);
+  border: none; color: #02181a;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer; font-weight: 600;
+  transition: transform 0.2s ease;
+}
+.btn-primary:hover { transform: scale(1.05); }
+
+.btn-ghost {
+  margin-left: 14px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: inherit; padding: 12px 16px;
+  border-radius: 10px; cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.btn-ghost:hover { border-color: #4ecdc4; }
+
+/* === Animations === */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity .8s, transform .8s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.slide-in-left { animation: slideLeft 0.8s ease forwards; }
+@keyframes slideLeft { from {opacity:0; transform:translateX(-30px);} to {opacity:1; transform:translateX(0);} }
+
+.slide-in-right { animation: slideRight 0.8s ease forwards; }
+@keyframes slideRight { from {opacity:0; transform:translateX(30px);} to {opacity:1; transform:translateX(0);} }
+
+.pop-in { opacity: 0; transform: scale(0.9); animation: popIn 0.6s ease forwards; }
+@keyframes popIn { to {opacity:1; transform: scale(1);} }
+
+@media (max-width: 900px) {
+  .landing-container .hero { flex-direction: column; }
+  .hero-right { width: 100%; }
+  .two-col { flex-direction: column; }
+}

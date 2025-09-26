@@ -1,0 +1,25 @@
+.field-map {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+}
+
+.field-image {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+}
+
+.dot.red { background: #ff6b6b; }
+.dot.yellow { background: #ffe66d; }
+.dot.green { background: #4ecdc4; }
